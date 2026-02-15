@@ -1,0 +1,36 @@
+import { Model,DataTypes } from 'sequelize'
+import { sequelize } from "../api/connection";
+
+
+
+class Mojor extends Model {
+    declare majorID: string;
+    declare majorName: string;
+    declare areaID: string;
+}
+
+Mojor.init(
+  {
+    majorID: {
+      type: DataTypes.STRING(8),
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    majorName: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    areaID  : {
+        type: DataTypes.STRING(6),
+        allowNull: false
+    }
+  },
+  {
+    tableName: 'Mojor',
+    createdAt: false,
+    updatedAt: false,
+    deletedAt: false,
+    sequelize
+  }
+);
+export { Mojor }
